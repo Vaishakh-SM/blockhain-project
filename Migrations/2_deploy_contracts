@@ -1,0 +1,8 @@
+var CompanyContract = artifacts.require("./1_Company.sol");
+var MarketContract = artifacts.require("./2_Market.sol");
+
+module.exports = async function (deployer) {
+  await deployer.deploy(CompanyContract);
+
+  await deployer.deploy(MarketContract, CompanyContract.address);
+};
